@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Card } from '@/components/ui/card'
-import { TextField } from '@/components/ui/text-field'
-import { Button } from '@/components/ui/button'
+import { Card, TextField, Button } from '@sicaho-collab/m3-design-system'
 import { Eye, EyeOff } from 'lucide-react'
 import {
   validateEmail,

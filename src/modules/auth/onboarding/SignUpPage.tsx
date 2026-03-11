@@ -1,10 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Card } from '@/components/ui/card'
-import { TextField } from '@/components/ui/text-field'
-import { Button } from '@/components/ui/button'
-import { Chip } from '@/components/ui/chip'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Card, TextField, Button, Chip, Checkbox } from '@sicaho-collab/m3-design-system'
 import { Eye, EyeOff, AlertCircle, Check } from 'lucide-react'
 import {
   validateEmail,

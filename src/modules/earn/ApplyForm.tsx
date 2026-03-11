@@ -1,10 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CheckCircle } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { TextField } from '@/components/ui/text-field'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button, Card, TextField, Checkbox } from '@sicaho-collab/m3-design-system'
 import type { StudentGig } from './types'
 
 interface ApplyFormProps {
@@ -115,7 +112,7 @@ export default function ApplyForm({ gig }: ApplyFormProps) {
 
       <Card variant="outlined" className="p-4">
         <TextField
-          ref={messageRef as React.Ref<HTMLInputElement | HTMLTextAreaElement>}
+          ref={messageRef as any}
           variant="outlined"
           multiline
           rows={4}

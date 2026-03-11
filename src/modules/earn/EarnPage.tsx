@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { Button } from '@/components/ui/button'
-import { Progress } from '@/components/ui/progress'
+import { Button, Progress } from '@sicaho-collab/m3-design-system'
 import { MOCK_GIGS, type StudentGig, type SortOption, type LocationFilter } from './types'
 import FilterBar from './FilterBar'
 import GigCard from './GigCard'

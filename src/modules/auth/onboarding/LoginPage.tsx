@@ -1,8 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Card } from '@/components/ui/card'
-import { TextField } from '@/components/ui/text-field'
-import { Button } from '@/components/ui/button'
+import { Card, TextField, Button } from '@sicaho-collab/m3-design-system'
 import { Eye, EyeOff, AlertCircle } from 'lucide-react'
 import { validateEmail, validatePassword } from './types'
 

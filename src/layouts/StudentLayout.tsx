@@ -2,8 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, Button } from '@sicaho-collab/m3-design-system'
 
 const NAV_ITEMS = [
   { to: '/earn',         label: 'Earn'         },

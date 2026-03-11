@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Progress } from '@/components/ui/progress'
+import { Card, Button, Checkbox, Progress } from '@sicaho-collab/m3-design-system'
 import { AlertCircle, Pencil } from 'lucide-react'
 import type { StudentOnboardingData } from './student-types'
 

@@ -1,55 +1,37 @@
 import { useNavigate } from 'react-router-dom'
-import { MapPin, Clock, Calendar } from 'lucide-react'
-import { Card, CardHeader, CardContent } from '@/components/ui/card'
-import { Chip } from '@/components/ui/chip'
-import { cn } from '@/lib/utils'
+import { Info } from 'lucide-react'
+import { Card, CardHeader, CardContent } from '@sicaho-collab/m3-design-system'
 import type { StudentGig } from './types'
 
 interface GigCardProps {
   gig: StudentGig
 }
 
+const CAPABILITY_COLORS: Record<string, string> = {
+  'Analytical & Data Thinking': 'bg-blue-100 text-blue-800',
+  'Communication': 'bg-amber-100 text-amber-800',
+  'Digital & Technical': 'bg-violet-100 text-violet-800',
+  'Project & Execution': 'bg-emerald-100 text-emerald-800',
+  'Collaboration': 'bg-pink-100 text-pink-800',
+  'Creative Thinking': 'bg-orange-100 text-orange-800',
+  'Business Insight': 'bg-cyan-100 text-cyan-800',
+  'Leadership': 'bg-rose-100 text-rose-800',
+}
+
 function formatDate(iso: string): string {
   const d = new Date(iso)
-  const day = String(d.getDate()).padStart(2, '0')
-  const month = String(d.getMonth() + 1).padStart(2, '0')
+  const day = d.getDate()
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ]
+  const month = months[d.getMonth()]
   const year = d.getFullYear()
-  return `${day}/${month}/${year}`
-}
-
-function formatShortDate(iso: string): string {
-  const d = new Date(iso)
-  const day = String(d.getDate()).padStart(2, '0')
-  const month = String(d.getMonth() + 1).padStart(2, '0')
-  return `${day}/${month}`
-}
-
-function postedAgo(iso: string): string {
-  const now = new Date()
-  const posted = new Date(iso)
-  const diffMs = now.getTime() - posted.getTime()
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-  if (diffDays === 0) return 'Posted today'
-  if (diffDays === 1) return 'Posted 1d ago'
-  return `Posted ${diffDays}d ago`
-}
-
-const LOCATION_STYLES: Record<string, string> = {
-  remote: 'bg-green-100 text-green-800 border-green-300',
-  'on-site': 'bg-blue-100 text-blue-800 border-blue-300',
-  hybrid: 'bg-purple-100 text-purple-800 border-purple-300',
-}
-
-const LOCATION_LABELS: Record<string, string> = {
-  remote: 'Remote',
-  'on-site': 'On-Site',
-  hybrid: 'Hybrid',
+  return `${day} ${month} ${year}`
 }
 
 export default function GigCard({ gig }: GigCardProps) {
   const navigate = useNavigate()
-  const visibleCaps = gig.capabilities.slice(0, 3)
-  const extraCount = gig.capabilities.length - 3
 
   return (
     <Card
@@ -69,71 +51,41 @@ export default function GigCard({ gig }: GigCardProps) {
         <h3 className="text-[var(--text-base)] font-semibold text-m3-on-surface">
           {gig.title}
         </h3>
-        <div className="flex items-center justify-between mt-1">
-          <span className="text-[var(--text-xs)] text-m3-on-surface-variant">
-            {gig.employerName}
-          </span>
-          <span className="text-[var(--text-xs)] text-m3-on-surface-variant">
-            {postedAgo(gig.postedAt)}
-          </span>
-        </div>
       </CardHeader>
 
       <CardContent className="flex flex-col gap-3">
-        {/* Description snippet */}
-        <p className="text-[var(--text-sm)] text-m3-on-surface-variant line-clamp-2">
-          {gig.description}
-        </p>
-
-        {/* Capability chips */}
+        {/* Capability tags */}
         {gig.capabilities.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {visibleCaps.map(cap => (
-              <Chip key={cap} variant="assist" className="pointer-events-none">
+            {gig.capabilities.map(cap => (
+              <span
+                key={cap}
+                className={`inline-flex items-center rounded-m3-sm text-[var(--text-xs)] font-medium px-3 py-1 ${CAPABILITY_COLORS[cap] || 'bg-gray-100 text-gray-800'}`}
+              >
                 {cap}
-              </Chip>
-            ))}
-            {extraCount > 0 && (
-              <span className="inline-flex items-center text-[var(--text-xs)] text-m3-on-surface-variant font-medium">
-                +{extraCount} more
               </span>
-            )}
+            ))}
           </div>
         )}
 
-        {/* Metadata row */}
-        <div className="flex flex-col gap-1.5 md:flex-row md:items-center md:gap-4">
-          <span
-            className={cn(
-              'inline-flex items-center gap-1 text-[var(--text-xs)] font-medium rounded-m3-sm border px-2 py-0.5 w-fit',
-              LOCATION_STYLES[gig.locationType] || ''
-            )}
-          >
-            <MapPin size={14} />
-            {LOCATION_LABELS[gig.locationType] || 'Not specified'}
-          </span>
-          <span className="text-[var(--text-sm)] font-semibold text-m3-on-surface">
-            ${gig.studentPayment.toFixed(2)}
-          </span>
-          <span className="inline-flex items-center gap-1 text-[var(--text-xs)] text-m3-on-surface-variant">
-            <Clock size={14} />
-            Up to {gig.maxHours} hrs
-          </span>
-        </div>
+        {/* Date range */}
+        <p className="text-[var(--text-sm)] text-m3-on-surface-variant">
+          {formatDate(gig.startDate)} &ndash; {formatDate(gig.endDate)}
+        </p>
 
-        {/* Dates row */}
-        <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4 text-[var(--text-xs)] text-m3-on-surface-variant">
-          <span className="inline-flex items-center gap-1">
-            <Calendar size={14} />
-            {formatDate(gig.startDate)} &ndash; {formatDate(gig.endDate)}
-            {(gig.flexibleStart || gig.flexibleEnd) && (
-              <span className="text-m3-tertiary font-medium ml-1">Flexible</span>
-            )}
+        {/* Earnings with hover tooltip */}
+        <p className="text-[var(--text-sm)] font-semibold text-m3-on-surface inline-flex items-center gap-1">
+          You will earn: ${gig.studentPayment.toFixed(2)} (incl. super)
+          <span
+            className="relative inline-flex group"
+            onClick={e => e.stopPropagation()}
+          >
+            <Info size={14} className="text-m3-on-surface-variant/70 cursor-help" />
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2.5 py-1.5 rounded-m3-sm bg-m3-on-surface text-m3-surface text-[var(--text-xs)] font-normal whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">
+              Estimated gross earnings subject to fees and taxes
+            </span>
           </span>
-          <span className="font-medium text-m3-primary">
-            Apply by {formatShortDate(gig.applicationDeadline)}
-          </span>
-        </div>
+        </p>
       </CardContent>
     </Card>
   )
