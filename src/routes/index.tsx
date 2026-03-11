@@ -34,8 +34,8 @@ export const router = createBrowserRouter([
       },
 
       // Default redirect
-      { index: true, element: <Navigate to="/earn" replace /> },
-      { path: '*', element: <Navigate to="/earn" replace /> },
+      { index: true, element: <Navigate to="/login" replace /> },
+      { path: '*', element: <Navigate to="/login" replace /> },
     ],
   },
 ], { basename: '/student-web' })
