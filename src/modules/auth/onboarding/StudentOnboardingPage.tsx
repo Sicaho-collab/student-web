@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
@@ -104,6 +104,14 @@ export default function StudentOnboardingPage() {
           onSubmitSuccess={() => setSuccess(true)}
         />
       )}
+
+      {/* Footer link */}
+      <p className="text-sm text-m3-on-surface-variant text-center mt-6">
+        Already have an account?{' '}
+        <Link to="/login" className="text-m3-primary font-medium hover:underline">
+          Log In
+        </Link>
+      </p>
     </div>
   )
 }
