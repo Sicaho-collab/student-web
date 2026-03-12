@@ -59,9 +59,9 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             'relative flex',
             multiline ? 'items-start' : 'items-center',
             variant === 'filled' &&
-              'bg-m3-surface-container-highest rounded-t-m3-xs border-b-2 border-m3-on-surface-variant focus-within:border-m3-primary',
+              'bg-m3-surface-container-highest rounded-t-m3-sm border-b-2 border-m3-on-surface-variant focus-within:border-m3-primary',
             variant === 'outlined' &&
-              'border border-m3-outline rounded-m3-xs focus-within:border-2 focus-within:border-m3-primary',
+              'border border-m3-outline rounded-m3-sm focus-within:border-2 focus-within:border-m3-primary',
             error && 'border-m3-error focus-within:border-m3-error',
             disabled && 'opacity-38 pointer-events-none border-m3-on-surface/12'
           )}
@@ -85,8 +85,8 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             className={cn(
               'w-full bg-transparent outline-none text-m3-on-surface text-base placeholder-m3-on-surface-variant/60',
               multiline
-                ? 'min-h-14 resize-y leading-relaxed px-4 py-3'
-                : 'h-14 px-4',
+                ? 'min-h-[40px] resize-y leading-relaxed px-3 py-2.5'
+                : 'h-10 px-3',
               leadingIcon && 'pl-2',
               trailingIcon && 'pr-2',
               disabled && 'text-m3-on-surface/38 cursor-not-allowed'
