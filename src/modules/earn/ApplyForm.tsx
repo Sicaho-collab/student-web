@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CheckCircle } from 'lucide-react'
-import { Button, Card, TextField, Checkbox } from '@sicaho-collab/m3-design-system'
+import { Button, Card, TextField, Checkbox } from '@sicaho-collab/ui-web'
 import type { StudentGig } from './types'
 
 interface ApplyFormProps {

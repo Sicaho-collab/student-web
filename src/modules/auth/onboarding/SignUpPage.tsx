@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Card, Button, Chip, Checkbox } from '@sicaho-collab/m3-design-system'
+import { Card, Button, Chip, Checkbox } from '@sicaho-collab/ui-web'
 import { TextField } from '@/components/ui/text-field'
 import { Eye, EyeOff, AlertCircle, Check } from 'lucide-react'
 import {

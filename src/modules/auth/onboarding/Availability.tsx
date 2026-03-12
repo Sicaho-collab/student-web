@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Card, Chip, Button } from '@sicaho-collab/m3-design-system'
+import { Card, Chip, Button } from '@sicaho-collab/ui-web'
 import { TextField } from '@/components/ui/text-field'
 import { AlertCircle } from 'lucide-react'
 import type { StudentOnboardingData } from './student-types'

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { LogOut, DollarSign, FileText, User } from 'lucide-react'
-import { Card, Button, NavigationRail } from '@sicaho-collab/m3-design-system'
-import type { NavRailItem } from '@sicaho-collab/m3-design-system'
+import { Card, Button, NavigationRail } from '@sicaho-collab/ui-web'
+import type { NavRailItem } from '@sicaho-collab/ui-web'
 
 const NAV_ITEMS: (NavRailItem & { to: string })[] = [
   { to: '/earn',         label: 'Earn',         icon: <DollarSign className="size-6" /> },

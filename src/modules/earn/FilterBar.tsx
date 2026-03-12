@@ -1,5 +1,5 @@
 import { ArrowUpDown } from 'lucide-react'
-import { Chip } from '@sicaho-collab/m3-design-system'
+import { Chip } from '@sicaho-collab/ui-web'
 import { cn } from '@/lib/utils'
 import { CAPABILITY_OPTIONS, type LocationFilter, type SortOption } from './types'
 

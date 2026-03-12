@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@source "../../node_modules/@sicaho-collab/m3-design-system/dist";
-@import "@sicaho-collab/m3-design-system/styles";
+@source "../../node_modules/@sicaho-collab/ui-web/dist";
+@import "@sicaho-collab/ui-web/styles";
 
 /* ─────────────────────────────────────────────────────────────────────────────
    Design Tokens — Student Web (app-specific overrides)

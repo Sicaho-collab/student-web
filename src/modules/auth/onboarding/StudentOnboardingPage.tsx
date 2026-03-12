@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Card, Button } from '@sicaho-collab/m3-design-system'
+import { Card, Button } from '@sicaho-collab/ui-web'
 import { Check } from 'lucide-react'
 import M3Stepper from '@/components/ui/M3Stepper'
 import AccountSetup from './AccountSetup'

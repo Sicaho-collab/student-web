@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
-import { Button, Chip, Progress } from '@sicaho-collab/m3-design-system'
+import { Button, Chip, Progress } from '@sicaho-collab/ui-web'
 import { cn } from '@/lib/utils'
 import { MOCK_GIGS, type StudentGig } from './types'
 import ApplyForm from './ApplyForm'

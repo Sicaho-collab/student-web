@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Info } from 'lucide-react'
-import { Card, CardHeader, CardContent } from '@sicaho-collab/m3-design-system'
+import { Card, CardHeader, CardContent } from '@sicaho-collab/ui-web'
 import type { StudentGig } from './types'
 
 interface GigCardProps {

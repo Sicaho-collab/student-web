@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Button } from '@sicaho-collab/m3-design-system'
+import { Card, Button } from '@sicaho-collab/ui-web'
 import { TextField } from '@/components/ui/text-field'
 import { AlertCircle, Mail } from 'lucide-react'
 import { validateEmail } from './types'
