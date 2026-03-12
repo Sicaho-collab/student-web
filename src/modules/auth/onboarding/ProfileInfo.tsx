@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Card, TextField, Button } from '@sicaho-collab/m3-design-system'
+import { Card, Button } from '@sicaho-collab/m3-design-system'
+import { TextField } from '@/components/ui/text-field'
 import type { StudentOnboardingData } from './student-types'
 import { YEAR_OPTIONS } from './student-types'
 
