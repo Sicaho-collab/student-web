@@ -59,27 +59,24 @@ export default function StudentLayout() {
   }
 
   return (
-    <div className="min-h-screen flex bg-m3-surface">
-      {/* ── Left Sidebar: Brand Logo + NavigationRail ── */}
-      {/* ── Left Sidebar: NavigationRail with logo ── */}
+    <div className="min-h-screen flex" style={{ background: '#ECEEF1' }}>
+      {/* ── Left Sidebar: NavigationRail ── */}
       <NavigationRail
         items={NAV_ITEMS}
         activeIndex={activeIndex}
         onSelect={handleSelect}
         defaultExpanded={false}
-        header={
-          <img
-            src={`${import.meta.env.BASE_URL}alumable-stacked.png`}
-            alt="Alumable"
-            className="h-10"
-          />
-        }
       />
 
       {/* ── Right Content Area ── */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top bar with user menu */}
-        <header className="sticky top-0 z-40 h-[60px] bg-white border-b border-m3-outline-variant flex items-center justify-end px-4 md:px-6">
+      <div className="flex-1 flex flex-col min-h-0">
+        {/* Top bar */}
+        <header className="sticky top-0 z-40 h-[60px] flex items-center justify-between px-4 md:px-6" style={{ background: '#ECEEF1' }}>
+          <img
+            src={`${import.meta.env.BASE_URL}alumable-horizontal.png`}
+            alt="Alumable"
+            className="h-7"
+          />
           <div className="relative" ref={menuRef}>
             <button
               ref={triggerRef}
@@ -121,7 +118,7 @@ export default function StudentLayout() {
         </header>
 
         {/* ── Page Content ── */}
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 bg-white rounded-t-2xl min-h-screen">
           <Outlet />
         </main>
       </div>
